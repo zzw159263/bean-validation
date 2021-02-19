@@ -6,6 +6,7 @@ import com.self.example.beanvalidation.common.valid.InsertChecks;
 import com.self.example.beanvalidation.domain.po.DepartmentPO;
 import com.self.example.beanvalidation.domain.po.EmployeePO;
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.validator.constraints.URL;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 

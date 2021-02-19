@@ -1,6 +1,7 @@
 package com.self.example.beanvalidation.controller;
 
 import com.self.example.beanvalidation.common.request.SysLoginForm;
+import com.self.example.beanvalidation.domain.valid.LoginChecks;
 import com.self.example.beanvalidation.listener.event.LoginEvent;
 import com.self.example.beanvalidation.service.LoginStrategyService;
 import com.self.example.beanvalidation.strategy.AbsLoginStrategy;
@@ -33,7 +34,7 @@ public class SysLoginController {
     private ApplicationContext applicationContext;
 
     @PostMapping("/login")
-    public Map<String, Object> login(@RequestBody @Valid SysLoginForm form){
+    public Map<String, Object> login(@RequestBody @Validated(LoginChecks.class) SysLoginForm form){
 
         AbsLoginStrategy loginStrategy = loginService.getLoginStrategy(form.getSource());
         loginStrategy.doLogin(form);
