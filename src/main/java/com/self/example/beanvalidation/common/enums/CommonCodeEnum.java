@@ -2,7 +2,8 @@ package com.self.example.beanvalidation.common.enums;
 
 public enum CommonCodeEnum implements ResultCode{
     SUCCESS(200, true, "成功"),
-    FAILED(500, false, "失败")
+    FAILED(500, false, "失败"),
+    VALID_FAILED(422, false, "参数校验失败")
     ;
 
     private int code;

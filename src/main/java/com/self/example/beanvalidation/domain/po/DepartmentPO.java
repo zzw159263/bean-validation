@@ -4,17 +4,21 @@ import com.self.example.beanvalidation.common.po.BasePO;
 import com.self.example.beanvalidation.common.valid.InsertChecks;
 import com.self.example.beanvalidation.common.valid.UpdateChecks;
 import lombok.Data;
+import lombok.ToString;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 
 @Data
+@ToString
 public class DepartmentPO extends BasePO {
     /**
      * 主键
      */
     @NotBlank(groups = UpdateChecks.class)
+    @Null(groups = InsertChecks.class)
     private Long id;
     /**
      * 部门名称

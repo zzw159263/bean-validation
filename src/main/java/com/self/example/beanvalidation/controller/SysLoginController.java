@@ -34,10 +34,7 @@ public class SysLoginController {
 
     @PostMapping("/login")
     public Map<String, Object> login(@RequestBody @Valid SysLoginForm form){
-        //检验验证码
-        //校验用户信息
-        //校验账号锁定
-        //生成token，并保存到数据库
+
         AbsLoginStrategy loginStrategy = loginService.getLoginStrategy(form.getSource());
         loginStrategy.doLogin(form);
 
