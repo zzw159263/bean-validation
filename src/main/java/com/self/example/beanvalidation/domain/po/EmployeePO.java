@@ -1,5 +1,6 @@
 package com.self.example.beanvalidation.domain.po;
 
+import com.self.example.beanvalidation.common.valid.annotation.ValidEmail;
 import com.self.example.beanvalidation.common.po.BasePO;
 import lombok.Data;
 
@@ -38,10 +39,12 @@ public class EmployeePO extends BasePO {
     /**
      * 座机号
      */
+
     private String tel;
     /**
      * 邮箱
      */
+    @ValidEmail
     private String email;
     /**
      * 地址
