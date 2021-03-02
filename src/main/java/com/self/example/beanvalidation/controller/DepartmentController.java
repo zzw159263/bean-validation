@@ -18,7 +18,7 @@ import javax.validation.constraints.Min;
 @RequestMapping("/depts")
 @Slf4j
 @Validated
-public class DepartmentController {
+public class  DepartmentController {
 
     @Autowired
     private ApplicationContext context;
