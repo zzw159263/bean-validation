@@ -6,7 +6,6 @@ import com.self.example.beanvalidation.common.valid.InsertChecks;
 import com.self.example.beanvalidation.domain.po.DepartmentPO;
 import com.self.example.beanvalidation.domain.po.EmployeePO;
 import lombok.extern.slf4j.Slf4j;
-import org.hibernate.validator.constraints.URL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.validation.annotation.Validated;
@@ -18,7 +17,7 @@ import javax.validation.constraints.Min;
 @RequestMapping("/depts")
 @Slf4j
 @Validated
-public class  DepartmentController {
+public class DepartmentController {
 
     @Autowired
     private ApplicationContext context;
