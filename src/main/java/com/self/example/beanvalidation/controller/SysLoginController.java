@@ -3,8 +3,7 @@ package com.self.example.beanvalidation.controller;
 import com.self.example.beanvalidation.common.request.SysLoginForm;
 import com.self.example.beanvalidation.domain.valid.LoginChecks;
 import com.self.example.beanvalidation.listener.event.LoginEvent;
-import com.self.example.beanvalidation.service.LoginStrategyService;
-import com.self.example.beanvalidation.strategy.AbsLoginStrategy;
+import com.self.example.beanvalidation.service.ILoginService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -27,16 +26,14 @@ import java.util.Map;
 public class SysLoginController {
 
     @Autowired
-    private LoginStrategyService loginService;
+    private ILoginService loginService;
 
     @Autowired
     private ApplicationContext applicationContext;
 
     @PostMapping("/login")
     public Map<String, Object> login(@RequestBody @Validated(LoginChecks.class) SysLoginForm form){
-
-        AbsLoginStrategy loginStrategy = loginService.getLoginStrategy(form.getSource());
-        loginStrategy.doLogin(form);
+        loginService.doLogin(form);
 
         applicationContext.publishEvent(new LoginEvent(this, form.getUsername()));
         return null;

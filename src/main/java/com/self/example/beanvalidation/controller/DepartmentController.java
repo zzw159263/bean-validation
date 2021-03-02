@@ -7,6 +7,8 @@ import com.self.example.beanvalidation.domain.po.DepartmentPO;
 import com.self.example.beanvalidation.domain.po.EmployeePO;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.validator.constraints.URL;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,8 +19,13 @@ import javax.validation.constraints.Min;
 @Slf4j
 @Validated
 public class DepartmentController {
+
+    @Autowired
+    private ApplicationContext context;
+
     @GetMapping("/all")
     public Response allDepartments() {
+        context.getBean("loginService");
         log.info("查询所有部门");
         return null;
     }

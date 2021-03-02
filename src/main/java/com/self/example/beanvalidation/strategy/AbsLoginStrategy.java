@@ -8,7 +8,6 @@ import java.util.Map;
 @Component
 public abstract class AbsLoginStrategy {
 
-
     public abstract Map<String,Object> doLogin(Request request);
 
 
